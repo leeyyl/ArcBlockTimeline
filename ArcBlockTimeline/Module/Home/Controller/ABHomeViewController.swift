@@ -33,10 +33,6 @@ class ABHomeViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.title = "首页"
         view.backgroundColor = .red
-        view.addSubview(homeTableView)
-        homeTableView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
-        }
         
         viewModel.loadList()
         
@@ -46,9 +42,9 @@ class ABHomeViewController: UIViewController {
                 switch model.type {
                 case .text:
                     cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as ABHomeTextCell
-                case .textImage, .image:
+                case .textImg, .img:
                     cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as ABHomeTextImageCell
-                case .link:
+                case .textLink:
                     cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as ABHomeLinkCell
                 }
                 cell.model = model
@@ -68,15 +64,24 @@ class ABHomeViewController: UIViewController {
                 switch model.type {
                 case .text:
                     print("纯文本自动调整高度")
-                case .textImage, .image:
+                case .textImg, .img:
                     let vc = ABDetailViewController(model: model)
                     self.navigationController?.pushViewController(vc, animated: true)
-                case .link:
+                case .textLink:
                     let vc = ABWebViewController(url: model.link)
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
             })
             .disposed(by: disposeBag)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        view.addSubview(homeTableView)
+        homeTableView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
     }
     
 

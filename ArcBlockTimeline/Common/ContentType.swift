@@ -9,8 +9,8 @@
 import Foundation
 
 enum ContentType: String {
-    case image     = "image"
-    case text      = "text"
-    case textImage = "text image"
-    case link      = "link"
+    case img      = "img"
+    case text     = "text"
+    case textImg  = "text-img"
+    case textLink = "text-link"
 }

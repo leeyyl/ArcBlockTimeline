@@ -19,6 +19,13 @@ class ABWebViewController: UIViewController {
         return wk
     }()
     
+    fileprivate lazy var progressView: UIProgressView = {
+        let progress = UIProgressView.init(frame: CGRect(x: CGFloat(0), y: CGFloat(0), width: GlobalMacro.Width, height: 2))
+        progress.tintColor = UIColor.green
+        progress.trackTintColor = UIColor.white
+        return progress
+    }()
+    
     init(url: String) {
         self.url = url
         super.init(nibName: nil, bundle: nil)
@@ -32,11 +39,15 @@ class ABWebViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.title = "正在加载..."
         view.addSubview(webView)
         webView.snp.makeConstraints { (make) in
             make.top.equalTo(20)
             make.left.right.bottom.equalToSuperview()
         }
+        view.addSubview(progressView)
+        view.bringSubviewToFront(progressView)
+        webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
         
         if url.isUrl {
             guard let url = URL(string: url) else { return }
@@ -48,6 +59,27 @@ class ABWebViewController: UIViewController {
             }))
             self.present(alert, animated: true, completion: nil)
         }
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        // 加载进度条
+        if keyPath == "estimatedProgress"{
+            progressView.alpha = 1.0
+            progressView.setProgress(Float((self.webView.estimatedProgress) ), animated: true)
+            if (self.webView.estimatedProgress )  >= 1.0 {
+                UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseOut, animations: {
+                    self.progressView.alpha = 0
+                }, completion: { (finish) in
+                    self.progressView.setProgress(0.0, animated: false)
+                })
+            }
+        }
+    }
+    
+    deinit {
+        self.webView.removeObserver(self, forKeyPath: "estimatedProgress")
+        self.webView.uiDelegate = nil
+        self.webView.navigationDelegate = nil
     }
     
 
