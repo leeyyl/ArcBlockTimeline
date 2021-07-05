@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,10 @@
 		9B2CB63F2691F4E5005E0C8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B2CB63D2691F4E5005E0C8A /* LaunchScreen.storyboard */; };
 		9B2CB64A2691F4E6005E0C8A /* ArcBlockTimelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2CB6492691F4E6005E0C8A /* ArcBlockTimelineTests.swift */; };
 		9B2CB6552691F4E6005E0C8A /* ArcBlockTimelineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2CB6542691F4E6005E0C8A /* ArcBlockTimelineUITests.swift */; };
+		9B2CB67B2692A4FF005E0C8A /* JsonData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B2CB67A2692A4FF005E0C8A /* JsonData.json */; };
+		9B2CB67D2692A806005E0C8A /* ABConvertJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2CB67C2692A806005E0C8A /* ABConvertJSON.swift */; };
+		9B2CB6852692B113005E0C8A /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2CB6842692B113005E0C8A /* BaseModel.swift */; };
+		9B2CB6932692B136005E0C8A /* ABHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2CB6902692B136005E0C8A /* ABHomeModel.swift */; };
 		CCBF6B45EF5D8665E6265631 /* Pods_ArcBlockTimeline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9672D06BE1F0CA766006B5C /* Pods_ArcBlockTimeline.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +56,10 @@
 		9B2CB6502691F4E6005E0C8A /* ArcBlockTimelineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArcBlockTimelineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B2CB6542691F4E6005E0C8A /* ArcBlockTimelineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcBlockTimelineUITests.swift; sourceTree = "<group>"; };
 		9B2CB6562691F4E6005E0C8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B2CB67A2692A4FF005E0C8A /* JsonData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = JsonData.json; sourceTree = "<group>"; };
+		9B2CB67C2692A806005E0C8A /* ABConvertJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABConvertJSON.swift; sourceTree = "<group>"; };
+		9B2CB6842692B113005E0C8A /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		9B2CB6902692B136005E0C8A /* ABHomeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABHomeModel.swift; sourceTree = "<group>"; };
 		A9672D06BE1F0CA766006B5C /* Pods_ArcBlockTimeline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArcBlockTimeline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -95,7 +103,6 @@
 				56C9029A75B35ED52E6F329A /* Pods-ArcBlockTimeline.debug.xcconfig */,
 				640EB53C37C4EE4ABE559C9A /* Pods-ArcBlockTimeline.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -124,6 +131,12 @@
 		9B2CB6312691F4E4005E0C8A /* ArcBlockTimeline */ = {
 			isa = PBXGroup;
 			children = (
+				9B2CB6832692B113005E0C8A /* Common */,
+				9B2CB6792692A40F005E0C8A /* Extension */,
+				9B2CB6742692A40F005E0C8A /* Module */,
+				9B2CB6722692A40F005E0C8A /* Resource */,
+				9B2CB6782692A40F005E0C8A /* Services */,
+				9B2CB6732692A40F005E0C8A /* Utils */,
 				9B2CB6322691F4E4005E0C8A /* AppDelegate.swift */,
 				9B2CB6342691F4E4005E0C8A /* SceneDelegate.swift */,
 				9B2CB6362691F4E4005E0C8A /* ViewController.swift */,
@@ -151,6 +164,132 @@
 				9B2CB6562691F4E6005E0C8A /* Info.plist */,
 			);
 			path = ArcBlockTimelineUITests;
+			sourceTree = "<group>";
+		};
+		9B2CB6722692A40F005E0C8A /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				9B2CB67A2692A4FF005E0C8A /* JsonData.json */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		9B2CB6732692A40F005E0C8A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		9B2CB6742692A40F005E0C8A /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				9B2CB6862692B136005E0C8A /* Detail */,
+				9B2CB68C2692B136005E0C8A /* Home */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		9B2CB6782692A40F005E0C8A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9B2CB67C2692A806005E0C8A /* ABConvertJSON.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9B2CB6792692A40F005E0C8A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		9B2CB6832692B113005E0C8A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9B2CB6842692B113005E0C8A /* BaseModel.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		9B2CB6862692B136005E0C8A /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				9B2CB6882692B136005E0C8A /* Controller */,
+				9B2CB6892692B136005E0C8A /* Model */,
+				9B2CB68B2692B136005E0C8A /* View */,
+				9B2CB6942692B1D4005E0C8A /* ViewModel */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		9B2CB6882692B136005E0C8A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9B2CB6892692B136005E0C8A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9B2CB68B2692B136005E0C8A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9B2CB68C2692B136005E0C8A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				9B2CB68E2692B136005E0C8A /* Controller */,
+				9B2CB68F2692B136005E0C8A /* Model */,
+				9B2CB6912692B136005E0C8A /* View */,
+				9B2CB68D2692B136005E0C8A /* ViewModel */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		9B2CB68D2692B136005E0C8A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9B2CB68E2692B136005E0C8A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9B2CB68F2692B136005E0C8A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9B2CB6902692B136005E0C8A /* ABHomeModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9B2CB6912692B136005E0C8A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9B2CB6942692B1D4005E0C8A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,8 +356,10 @@
 		9B2CB6272691F4E4005E0C8A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = AB;
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
+				ORGANIZATIONNAME = com.arc.block;
 				TargetAttributes = {
 					9B2CB62E2691F4E4005E0C8A = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -259,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B2CB63F2691F4E5005E0C8A /* LaunchScreen.storyboard in Resources */,
+				9B2CB67B2692A4FF005E0C8A /* JsonData.json in Resources */,
 				9B2CB63C2691F4E5005E0C8A /* Assets.xcassets in Resources */,
 				9B2CB63A2691F4E4005E0C8A /* Main.storyboard in Resources */,
 			);
@@ -327,9 +469,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B2CB67D2692A806005E0C8A /* ABConvertJSON.swift in Sources */,
 				9B2CB6372691F4E4005E0C8A /* ViewController.swift in Sources */,
 				9B2CB6332691F4E4005E0C8A /* AppDelegate.swift in Sources */,
 				9B2CB6352691F4E4005E0C8A /* SceneDelegate.swift in Sources */,
+				9B2CB6852692B113005E0C8A /* BaseModel.swift in Sources */,
+				9B2CB6932692B136005E0C8A /* ABHomeModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
