@@ -12,7 +12,6 @@ class ABHomeTableViewCell: UITableViewCell {
 
     var model: ABHomeModel!
     
-    // 文本内容
     lazy var cellLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -20,7 +19,6 @@ class ABHomeTableViewCell: UITableViewCell {
         return label
     }()
     
-    // 内容容器
     lazy var cellContainer: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.white

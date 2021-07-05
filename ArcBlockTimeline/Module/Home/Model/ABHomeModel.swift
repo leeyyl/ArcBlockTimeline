@@ -9,13 +9,6 @@
 import Foundation
 import ObjectMapper
 
-enum ContentType: String {
-    case img        = "image"
-    case text       = "text"
-    case textImage  = "text-image"
-    case textLink   = "text-link"
-}
-
 struct ABHomeModel: Mappable {
     
     var id = 0
