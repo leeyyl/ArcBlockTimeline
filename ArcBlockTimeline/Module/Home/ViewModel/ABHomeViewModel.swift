@@ -20,7 +20,7 @@ class ABHomeViewModel {
         ABConvertJSON.shared
             .reload()
             .do(onNext: { (models) in
-                print(models)
+                // print(models)
             })
             .bind(to: listData)
             .disposed(by: disposeBag)
