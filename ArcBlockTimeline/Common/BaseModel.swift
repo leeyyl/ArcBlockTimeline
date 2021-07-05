@@ -10,6 +10,7 @@ import Foundation
 import ObjectMapper
 
 struct BaseModel: Mappable {
+    
     var msg = ""
     var code = 0
     var data: [Any] = []
@@ -23,4 +24,5 @@ struct BaseModel: Mappable {
         code <- map["code"]
         data <- map["data"]
     }
+    
 }

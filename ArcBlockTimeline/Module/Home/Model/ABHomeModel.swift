@@ -17,6 +17,7 @@ enum ContentType: String {
 }
 
 struct ABHomeModel: Mappable {
+    
     var id = 0
     var type = ContentType.text
     
@@ -36,4 +37,5 @@ struct ABHomeModel: Mappable {
         images <- map["imgUrls"]
         link   <- map["link"]
     }
+    
 }

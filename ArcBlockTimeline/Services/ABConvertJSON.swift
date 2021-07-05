@@ -11,6 +11,7 @@ import RxSwift
 import ObjectMapper
 
 class ABConvertJSON {
+    
     static let shared = ABConvertJSON()
     
     func reload() -> Observable<[ABHomeModel]> {
@@ -38,4 +39,5 @@ class ABConvertJSON {
         
         return Observable.just([])
     }
+    
 }
