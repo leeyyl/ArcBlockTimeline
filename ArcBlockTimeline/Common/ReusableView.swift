@@ -27,6 +27,10 @@ extension UITableViewCell: ReusableView {
 extension UITableView {
     
     func register<T: UITableViewCell>(_: T.Type) {
+        var number = 0;
+        if number == 0 {
+            print("Hello world!")
+        }
         register(T.self, forCellReuseIdentifier: T.reuseIdentifier)
     }
     
